@@ -131,11 +131,12 @@ The same eight, in order, as the README and [adaptation.md](references/adaptatio
 8. Add the components, then style them through the `data-skill-*` hooks: [ui.md](references/ui.md).
 9. Copy `vitest.config.mts` and the five test files, wire `npm test`, and run it with `npm run typecheck` and
    `npm run build`: [testing.md](references/testing.md).
-10. The final message, not only a README, hands over: the organization and branch in `config.ts` and the
-    sync, that `npm run skills:sync` runs after every skill release and its result is committed,
-    `GITHUB_TOKEN` for more than about thirty skills, that `siteUrl` must be set before deploying (a literal,
-    never an environment variable), that the example skill is deleted after the first real sync, the
-    placeholders left in place and every dependency added. Next:
+10. The final message itself states each of these in full, with its file or number, even when a README
+    repeats them: the organization and branch, set in both `config.ts` and the sync; that
+    `npm run skills:sync` runs after every skill release and its result is committed; `GITHUB_TOKEN` for more
+    than about thirty skills; that `siteUrl` must be set before deploying (a literal, never an environment
+    variable); that the example skill is deleted after the first real sync; the placeholders left in place;
+    every dependency added. Next:
     [extensions.md](references/extensions.md); before simplifying anything,
     [provenance.md](references/provenance.md).
 
