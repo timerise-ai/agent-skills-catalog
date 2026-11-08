@@ -24,3 +24,8 @@ isolated: true
 timedOut: false
 runUrl: https://github.com/timerise-ai/agent-skills-catalog/actions/runs/42504793160
 ---
+
+Rubric 7/8. Scored from the final summary. The suite ran as written (five files, 24 tests) and the handover
+names everything the quick start asks for, but it renamed `vitest.config.ts` to `.mts` to silence a Vite
+warning, which is not a seam (item 2). The warning is real: the shipped name draws it in any host without
+`"type": "module"`, so the template moves to `.mts`.
