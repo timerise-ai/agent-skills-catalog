@@ -271,7 +271,7 @@ export interface SkillRule {
 
 /** `**Rule.** The reason.` becomes { rule, reason }; an item without a bold lead is all rule. */
 export function splitRule(item: string): SkillRule {
-  const match = item.match(/^\*\*(.+?)\*\*\s*(.*)$/s);
+  const match = item.match(/^\*\*([\s\S]+?)\*\*\s*([\s\S]*)$/);
   if (!match) return { rule: item.trim(), reason: "" };
   return { rule: (match[1] ?? "").trim(), reason: (match[2] ?? "").trim() };
 }

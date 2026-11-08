@@ -18,6 +18,10 @@ when a sync brings in a file the page cannot show.
 npm install --save-dev vitest
 ```
 
+If npm answers `ERESOLVE` on `@types/node`, as it does in a fresh `create-next-app` project, run
+`npm install --save-dev @types/node@latest vitest`; never `--force` or `--legacy-peer-deps`. The config below
+is `.mts` on purpose: under the `.ts` name Vite warns in any host without `"type": "module"`.
+
 ```json
 {
   "scripts": {
@@ -27,7 +31,7 @@ npm install --save-dev vitest
 ```
 
 ```ts
-// file: vitest.config.ts
+// file: vitest.config.mts
 import { fileURLToPath } from "node:url";
 
 import { defineConfig } from "vitest/config";

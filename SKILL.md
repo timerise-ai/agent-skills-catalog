@@ -75,8 +75,9 @@ lib/skills/catalog.ts   getSkill(slug), getAllSkills(), categories, related     
    strays loses that section and the validator says which. Nothing is guessed from prose.
 3. **Upstream links are relative to their repository.** `references/x.md` does not exist on the site, so
    `SkillMarkdown` resolves every relative link against the file's folder on GitHub.
-4. **One `[slug]` segment serves skills and categories.** `dynamicParams = false` keeps every page static,
-   and the validator fails on a skill slug that equals a category id.
+4. **One `[slug]` segment serves skills and categories.** `dynamicParams = false` keeps every page static
+   (a host with `cacheComponents` removes that one line: [adaptation.md](references/adaptation.md)), and the
+   validator fails on a skill slug that equals a category id.
 5. **A run file is free text anyone can propose.** Only an Actions run URL in the organization's own
    repositories becomes an "Agent log" link; JSON-LD escapes `<`.
 6. **Run files do not sort as text.** `-p1.md` sorts after `-p1-2.md`, so the order is date, then
@@ -125,14 +126,16 @@ The same eight, in order, as the README and [adaptation.md](references/adaptatio
 4. Copy the frontmatter, layout, markdown and upstream readers: [parsing.md](references/parsing.md).
 5. Copy the eval parser: [evals.md](references/evals.md).
 6. Copy the loader and the validator: [loader.md](references/loader.md).
-7. Add the catalog and `[slug]` pages, JSON-LD and the sitemap: [routes.md](references/routes.md).
+7. Add the catalog and `[slug]` pages, JSON-LD and the sitemap: [routes.md](references/routes.md). The pages
+   stay as shipped; an intro or a notice goes in a `layout.tsx` beside them.
 8. Add the components, then style them through the `data-skill-*` hooks: [ui.md](references/ui.md).
-9. Copy `vitest.config.ts` and the five test files, wire `npm test`, and run it with `npm run typecheck` and
+9. Copy `vitest.config.mts` and the five test files, wire `npm test`, and run it with `npm run typecheck` and
    `npm run build`: [testing.md](references/testing.md).
 10. The final message, not only a README, hands over: the organization and branch in `config.ts` and the
     sync, that `npm run skills:sync` runs after every skill release and its result is committed,
     `GITHUB_TOKEN` for more than about thirty skills, that `siteUrl` must be set before deploying (a literal,
-    never an environment variable), and that the example skill is deleted after the first real sync. Next:
+    never an environment variable), that the example skill is deleted after the first real sync, the
+    placeholders left in place and every dependency added. Next:
     [extensions.md](references/extensions.md); before simplifying anything,
     [provenance.md](references/provenance.md).
 

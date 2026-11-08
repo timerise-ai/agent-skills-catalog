@@ -109,6 +109,13 @@ Designed in the skill; the earlier implementation did not have these.
 - **Fence-aware list reading and escaped pipes in table cells.**
 - **`jsonLdScript`**, escaping `<` in JSON-LD; the earlier page wrote it unescaped, with host-written values.
 - **The example skill** in `assets/content/`, so an offline build has content.
+- **`vitest.config.mts`**, from the 0.1.0 evals: under `.ts` Vite warns in a host without `"type": "module"`,
+  and one agent renamed the template to silence it.
+- **`splitRule` without the `s` regex flag**, found checking 0.1.0 on a fresh `create-next-app` project: its
+  `ES2017` target rejects the flag.
+- **The Cache Components variant** in `adaptation.md`, found the same way: Next.js refuses `dynamicParams`
+  under `cacheComponents`. Measured on Next.js 16.4.5: known pages prerender, an unknown slug answers `200`
+  with the not-found page and `noindex`.
 
 ## If you are porting the earlier implementation
 

@@ -109,11 +109,12 @@ There is no build, lint or test step in this repository, so these run by hand fr
 
 - **Code blocks.** Create a scratch Next.js app with TypeScript and the App Router and no `src/` folder,
   set `strict` and `noUncheckedIndexedAccess` in its `tsconfig.json`, install `gray-matter`,
-  `react-markdown` and `remark-gfm`, and `vitest` as a dev dependency. Write every `// file: <path>` block
-  from `references/` to that path, copy `assets/content/` to `content/` (the loader reads
-  `content/skills/`), add the `test` script from `references/testing.md` and a `typecheck` script that
-  runs `tsc --noEmit`. Then run `npm run typecheck`, `npm run build` and `npm test`; the five test files
-  pass with 24 tests. The sync is not part of this check.
+  `react-markdown` and `remark-gfm`, and `vitest` as a dev dependency (with `@types/node@latest` on
+  `ERESOLVE`). Write every `// file: <path>` block from `references/` to that path, copy `assets/content/`
+  to `content/` (the loader reads `content/skills/`), add the `test` script from `references/testing.md` and
+  a `typecheck` script that runs `tsc --noEmit`. On a project whose config sets `cacheComponents`, apply the
+  variant in `references/adaptation.md`. Then run `npm run typecheck`, `npm run build` and `npm test`; the
+  five test files pass with 24 tests. The sync is not part of this check.
 
 ### Commits and releases
 

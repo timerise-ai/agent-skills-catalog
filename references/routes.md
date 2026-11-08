@@ -11,7 +11,8 @@
 skill pages in the URL and in the breadcrumb. The page decides which it is with `isSkillCategorySlug`, and
 the validator fails a skill slug that equals a category id, which would otherwise make one page
 unreachable. `dynamicParams = false` makes every page static and any other slug a 404 without running the
-page; a skill added later appears with the next build that has its synced files.
+page; a skill added later appears with the next build that has its synced files. A host with
+`cacheComponents` deletes that export: [adaptation.md](adaptation.md).
 
 ## SEO helpers
 

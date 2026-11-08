@@ -16,7 +16,7 @@ infer. Working unattended, use the placeholders and list them in the handover.
 | Markdown rendering | `react-markdown` + `remark-gfm` with `repoUrlTransform` | Its renderer, keeping the transform | `SkillMarkdown.tsx` |
 | UI primitives | Plain elements, ARIA, `data-skill-*` hooks | Its cards, buttons, inputs, badges | `components/skills/` |
 | Styling | Layout intent only | Its design system on the hooks | the hook table in [ui.md](ui.md) |
-| Page chrome | Bare `<main>` per page | Its header, footer, layout | the route group the pages live in |
+| Page chrome | Bare `<main>` per page | Its header, footer, layout, any intro or notice above the page | a `layout.tsx` in the route group; the page files stay as shipped |
 | Locale | English page text | Its i18n, if the site is translated | the page and component strings |
 | Tests | `vitest` files | `vitest` or `bun test` | `*.test.ts` |
 
@@ -27,6 +27,7 @@ the only write is the sync on a person's machine or in a job.
 
 ```bash
 grep -E '"(next|react|gray-matter|react-markdown|remark-gfm|vitest)"' package.json
+grep -n cacheComponents next.config.*          # set: see "Cache Components" below
 ls app src/app 2>/dev/null                      # where routes live, route groups, a [lang] segment
 ls content 2>/dev/null                          # where other markdown lives
 grep -rln "react-markdown\|MarkdownRenderer" --include=*.tsx . 2>/dev/null | grep -v node_modules | head -3
@@ -40,6 +41,14 @@ under it and points the vitest alias at `./src/`.
 
 **Add no dependency the host lacks without asking.** Working unattended, install `gray-matter`,
 `react-markdown`, `remark-gfm` and, as a dev dependency, `vitest` from npm, and list them in the handover.
+
+## Cache Components
+
+A host with `cacheComponents: true` in its Next.js config, which a fresh `create-next-app` project has,
+fails the build on `export const dynamicParams = false` in `app/skills/[slug]/page.tsx`. Delete that one line
+and leave the config as it is; it is the only template change this seam allows. Every known skill and
+category is still prerendered. An unknown slug renders the not-found page with `noindex` but answers `200`
+instead of `404`, because the status is sent before the page runs: name that in the handover.
 
 ## Renames
 
