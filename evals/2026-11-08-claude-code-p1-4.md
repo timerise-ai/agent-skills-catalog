@@ -24,3 +24,6 @@ isolated: true
 timedOut: false
 runUrl: https://github.com/timerise-ai/agent-skills-catalog/actions/runs/42531185893
 ---
+
+Rubric 8/8. Scored from the final summary. Five files, 24 tests, no template edit reported, and a complete
+handover. `INDEX_REPO = null` is a value the seam contract allows.
