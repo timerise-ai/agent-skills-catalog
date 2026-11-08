@@ -43,6 +43,9 @@ export default defineConfig({
 });
 ```
 
+Copy this config as shipped, with its alias changed only for a `src/` host. Do not add an exclude for the
+installed skill's folder: it holds no test files, so the `include` pattern finds nothing there.
+
 The alias matters for one file: `SkillMarkdown.tsx` imports `@/lib/skills/config`, and vitest does not read
 `tsconfig.json` paths on its own. The library files import each other relatively, so they need none.
 

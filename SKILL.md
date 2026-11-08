@@ -86,7 +86,8 @@ lib/skills/catalog.ts   getSkill(slug), getAllSkills(), categories, related     
    `assets/content/` so the pages, validator and tests have content, and hands over `npm run skills:sync`.
    `gray-matter`, `react-markdown`, `remark-gfm` and `vitest` come from npm, which is not an external
    service. The templates are copied, not rewritten: only the seam values in
-   [adaptation.md](references/adaptation.md) change, and the five test files run unmodified: 24 tests.
+   [adaptation.md](references/adaptation.md) change, and `vitest.config.mts` and the five test files run
+   unmodified: 24 tests.
 
 ## Hard rules
 
