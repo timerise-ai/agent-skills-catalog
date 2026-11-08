@@ -24,3 +24,6 @@ isolated: true
 timedOut: false
 runUrl: https://github.com/timerise-ai/agent-skills-catalog/actions/runs/42528784838
 ---
+
+Rubric 8/8. Scored from the final summary. Five files, 24 tests, no template edit reported, and a handover
+that gives every item with its file and limit, plus the placeholders and the dependencies.
